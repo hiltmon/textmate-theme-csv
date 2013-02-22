@@ -94,12 +94,12 @@ Which will create `MyNewTheme.tmTheme`. Cool.
 
 To install:
 
-    mkdir -p ~/Library/Application\ Support/TextMate/Bundles  
-    cd ~/Library/Application\ Support/TextMate/Bundles  
-    git clone git://github.com/hiltmon/ThemeCSV/ThemeCSV.tmbundle "ThemeCSV.tmBundle"  
-    osascript -e 'tell app "TextMate" to reload bundles'  
+	git clone git://github.com/hiltmon/textmate-theme-csv  
+	cd textmate-theme-csv  
 
-Source can be viewed or forked via GitHub: [http://github.com/hiltmon/ThemeCSV](http://github.com/hiltmon/ThemeCSV).
+Then drag and drop the `ThemeCSV.tmbundle` using Finder to `~\Library\Application Support\Avian\Bundles`.
+
+Source can be viewed or forked via GitHub: [http://github.com/hiltmon/textmate-theme-csv](http://github.com/hiltmon/textmate-theme-csv).
 
 # License
 (The MIT License)
