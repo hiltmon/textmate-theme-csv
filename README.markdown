@@ -99,6 +99,8 @@ To install:
 
 Then drag and drop the `ThemeCSV.tmbundle` using Finder to `~\Library\Application Support\Avian\Bundles`.
 
+**Warning:** This bundle includes a few overrides for the font changes in TextMate 2 Markdown and overrides the default Markdown language file to fix a bug in indented blocks and to create a scope for Liquid tags. Just delete these overrides from your copy of the bundle if you do not want them.
+
 Source can be viewed or forked via GitHub: [http://github.com/hiltmon/textmate-theme-csv](http://github.com/hiltmon/textmate-theme-csv).
 
 # License
