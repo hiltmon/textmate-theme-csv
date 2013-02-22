@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoScrollOutput</key>
+	<true/>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/escape"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/executor"
+
+TextMate.save_if_untitled('tmcsv')
+TextMate::Executor.run("#{ENV["TM_BUNDLE_SUPPORT"]}/bin/genTheme.rb","-b", ENV['TM_FILEPATH']) do |str, type|
+  str = htmlize(str)
+  str =  "&lt;span class=\"stderr\"&gt;#{htmlize(str)}&lt;/span&gt;" if type == :out
+end
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Generate</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>text.plain.tmcsv</string>
+	<key>semanticClass</key>
+	<string>process.run.script.tmcsv</string>
+	<key>uuid</key>
+	<string>57ADD8ED-F31D-4618-BD75-3314498D00B1</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,24 @@
+// Type, author, name, semanticClass, uuid
+Header, Hilton Lipschitz, BlankTheme, theme.blanktheme, 1CCBC529-83DC-4CF2-8940-89891455C450
+// Type, background, foreground, caret, selection, invisibles, lineHighlight
+Main, #FFFFFF, #000000, #000000, #A7CAFF, #BFBFBF, #00000012
+// Type, name, background, foreground, fontStyle (bold, italic, underline), scopes (comma separated)
+Scope, Comment, nil, nil, nil, comment
+Scope, String, nil, nil, nil, string
+Scope, Number, nil, nil, nil, constant.numeric
+Scope, Built-in constant, nil, nil, nil, constant.language
+Scope, User-defined constant, nil, nil, nil, constant.character, constant.other
+Scope, Variable, nil, nil, nil, variable.language, variable.other
+Scope, Keyword, nil, nil, nil, keyword
+Scope, Storage, nil, nil, nil, storage
+Scope, Class name, nil, nil, nil, entity.name.class
+Scope, Inherited class, nil, nil, nil, entity.other.inherited-class
+Scope, Function name, nil, nil, nil, entity.name.function
+Scope, Function argument, nil, nil, nil, variable.parameter
+Scope, Tag name, nil, nil, nil, entity.name.tag
+Scope, Tag attribute, nil, nil, nil, entity.other.attribute-name
+Scope, Library function, nil, nil, nil, support.function
+Scope, Library constant, nil, nil, nil, support.constant
+Scope, Library class/type, nil, nil, nil, support.type, support.class
+Scope, Library variable, nil, nil, nil, support.other.variable
+Scope, Invalid, nil, nil, nil, invalid
