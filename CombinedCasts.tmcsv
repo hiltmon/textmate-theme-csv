@@ -31,8 +31,9 @@ Scope, Meta tag, nil, #E8BF6A, nil, meta.tag, declaration.tag
 // Scope, Diff remove, #660000, #E6E1DC, nil, markup.deleted
 // Scope, Diff header, #2F33AB, nil, nil, meta.diff.header, meta.separator.diff, meta.diff.index, meta.diff.range
 Scope, Markdown, #F2F2F2, #3C3C3C, nil, text.html.markdown
+Scope, Markdown, #F2F2F2, #CC7833, nil, meta.separator.markdown
 Scope, Markdown, nil, #2A2A2A, nil, markup.raw.block.markdown
-Scope, Markdown heading elements, nil, #CC7833, nil, punctuation.definition.heading.markdown
+Scope, Markdown heading elements, nil, #CC7833, nil, punctuation.definition.heading.markdown, punctuation.definition.list.markdown
 Scope, Markdown structural elements, nil, #9f9f9f, nil, punctuation.definition.bold.markdown, punctuation.definition.italic.markdown,  punctuation.definition.blockquote.markdown, punctuation.definition.quote.markdown, punctuation.definition.list_item.markdown
 Scope, Markdown heading, nil, #3C3C3C, bold, text.html.markdown entity.name.section
 Scope, Markdown italic, nil, nil, italic, markup.italic.markdown
@@ -41,8 +42,8 @@ Scope, Markdown Link Grammar, nil, #CC7833, nil, punctuation.definition.constant
 Scope, Markdown link reference, nil, #9f9f9f, nil, punctuation.definition.metadata.markdown, meta.link.inline.markdown, meta.link.reference.markdown meta.link.reference.literal.markdown
 Scope, Markdown link actual, nil, #CC7833, nil, string.other.link.title.markdown, string.other.link.description.title.markdown
 Scope, Markdown link URL, nil, #4d84ac, nil, markup.underline.link.markdown
-Scope, Markdown embedded HTML, nil, #6e9cbe, nil, text.html.markdown.multimarkdown entity.name.tag, text.html.markdown.multimarkdown meta.tag, text.html.markdown.multimarkdown entity.other.attribute-name, text.html.markdown.multimarkdown string.quoted
-Scope, Markdown liquid, nil, #9f9f9f, nil, markup.raw.liquid.markdown
+Scope, Markdown embedded HTML, nil, #6e9cbe, nil, text.html.markdown entity.name.tag, text.html.markdown meta.tag, text.html.markdown entity.other.attribute-name, text.html.markdown string.quoted
+// Scope, Markdown liquid, nil, #9f9f9f, nil, markup.raw.liquid.markdown
 // Plain text
 Scope, TMCSV, #232323, #E6E1DC, nil, text.plain.tmcsv
 Scope, Plain Text, #F2F2F2, #3C3C3C, nil, text.plain
