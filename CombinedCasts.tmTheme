@@ -314,11 +314,11 @@
 			<key>name</key>
 			<string>Markdown</string>
 			<key>scope</key>
-			<string>markup.raw.block.markdown</string>
+			<string>markup.raw.block.markdown, markup.raw.inline.markdown</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#2A2A2A</string>
+				<string>#4d84ac</string>
 			</dict>
 		</dict>
 		<dict>
