@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env python
+
+import os
+
+class ThemePage(object):
+    def __init__(self):
+        super(ThemePage, self).__init__()
+        self.scopes = []
+        self.sort_key = 'scope'
+    
+    def parse_file(self, file):
+        lines = [line.strip() for line in open(file)];
+        for line in lines:
+            if line[0] == 'H':
+                page.gen_header(line)
+            if line[0] == 'M':
+                page.gen_main(line)
+            if line[0] == 'S':
+                page.gen_scope(line)
+
+    def gen_header(self, line):
+        pass
+    
+    def gen_main(self, line):
+        values = [x.lstrip() for x in line.split(',')]
+        self.props = dict(zip(['bgcolor', 'fgcolor', 'caret', 'selection', 'invisibles', 'linehl'], values[1:])) 
+    
+    def gen_scope(self, line):
+        values = [x.lstrip() for x in line.split(',', 5)]
+        scope = dict(zip(['name', 'bgcolor', 'fgcolor', 'style', 'scope'], values[1:]))
+        self.scopes.append(scope)
+    
+    def scope_to_css(self, scope):
+        # background-color:
+        res = ""
+        if scope['fgcolor'][0] == '#':
+            # FIXME: transparency in scope['fgcolor'][7:9]
+            res = "color:%s;" % (scope['fgcolor'][0:7])
+        if scope['bgcolor'][0] == '#':
+            # FIXME: transparency in scope['bgcolor'][7:9]
+            res = res + "background-color:%s;" % (scope['bgcolor'][0:7])
+        style = scope.get('style', None)
+        if style == 'italic':
+            res = res + "font-style:italic;"
+        elif style == 'bold':
+            res = res + "font-weight:bold;"
+        if res != "":
+            return 'style ="%s"' % res
+        else:
+            return ''
+    
+    def render(self):
+        self.preamble()
+    
+        print "&lt;p&gt;default&lt;/p&gt;"
+    
+        for scope in self.scopes:
+            print '&lt;p %s&gt;%s&lt;/p&gt;' % (self.scope_to_css(scope), scope['scope'])
+    
+        self.postamble()
+    
+    def preamble(self):
+        print '''
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;style&gt;
+body {color:%s;}
+&lt;/style&gt;
+&lt;body style="background-color:%s;"&gt;
+        ''' % (self.props['fgcolor'], self.props['bgcolor'])
+    
+    def postamble(self):
+        print '''
+&lt;/body&gt;
+&lt;/html&gt;        
+        '''
+page = ThemePage()
+page.parse_file(os.environ['TM_FILEPATH'])
+page.render()
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@b</string>
+	<key>name</key>
+	<string>Preview</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>text.plain.tmcsv</string>
+	<key>uuid</key>
+	<string>02E64BE5-0442-4B1E-9B0F-CD96FCE2D72B</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
