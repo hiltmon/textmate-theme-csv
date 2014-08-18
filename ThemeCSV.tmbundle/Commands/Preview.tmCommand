@@ -10,10 +10,16 @@
 import os
 
 class ThemePage(object):
-    def __init__(self):
+    """
+    Generate an HTML view of the scopes in a .tmcsv file.
+    Optionally pass a sort key ('name', 'bgcolor', 'fgcolor', 'style', or 'scope') 
+    to influence presentation order, the default is to present scopes in order of definition.
+    The 'default' scope is always presented first, regardless of sort key.
+    """
+    def __init__(self, sort_key = None):
         super(ThemePage, self).__init__()
         self.scopes = []
-        self.sort_key = 'scope'
+        self.sort_key = sort_key
     
     def parse_file(self, file):
         lines = [line.strip() for line in open(file)];
@@ -61,7 +67,11 @@ class ThemePage(object):
     
         print "&lt;p&gt;default&lt;/p&gt;"
     
-        for scope in self.scopes:
+        if self.sort_key:
+            sorted_scopes = sorted(self.scopes, key=lambda k: k.get(self.sort_key, None))
+        else:
+            sorted_scopes = self.scopes
+        for scope in sorted_scopes:
             print '&lt;p %s&gt;%s&lt;/p&gt;' % (self.scope_to_css(scope), scope['scope'])
     
         self.postamble()
@@ -81,6 +91,7 @@ body {color:%s;}
 &lt;/body&gt;
 &lt;/html&gt;        
         '''
+        
 page = ThemePage()
 page.parse_file(os.environ['TM_FILEPATH'])
 page.render()
